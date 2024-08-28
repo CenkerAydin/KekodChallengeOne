@@ -20,7 +20,6 @@
 
 # Android Studio files
 .idea/caches/build_file_checksums.ser
-.idea/caches/build_file_checksums.ser
 .idea/caches/gradle.xml
 .idea/caches/assetWizardSettings.xml
 .idea/libraries/Gradle__androidx_*.xml
