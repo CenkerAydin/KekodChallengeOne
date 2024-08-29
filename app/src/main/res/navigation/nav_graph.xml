@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/egoFragment">
+
+    <fragment
+        android:id="@+id/happinessFragment"
+        android:name="com.cenkeraydin.kekodchallengeone.fragments.HappinessFragment"
+        android:label="fragment_happiness"
+        tools:layout="@layout/fragment_happiness" />
+    <fragment
+        android:id="@+id/givingFragment"
+        android:name="com.cenkeraydin.kekodchallengeone.fragments.GivingFragment"
+        android:label="fragment_giving"
+        tools:layout="@layout/fragment_giving" />
+    <fragment
+        android:id="@+id/optimisimFragment"
+        android:name="com.cenkeraydin.kekodchallengeone.fragments.OptimisimFragment"
+        android:label="fragment_optimisim"
+        tools:layout="@layout/fragment_optimisim" />
+    <fragment
+        android:id="@+id/respectFragment"
+        android:name="com.cenkeraydin.kekodchallengeone.fragments.RespectFragment"
+        android:label="fragment_respect"
+        tools:layout="@layout/fragment_respect" />
+    <fragment
+        android:id="@+id/kindnessFragment"
+        android:name="com.cenkeraydin.kekodchallengeone.fragments.KindnessFragment"
+        android:label="fragment_kindness"
+        tools:layout="@layout/fragment_kindness" />
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.cenkeraydin.kekodchallengeone.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
+    <fragment
+        android:id="@+id/egoFragment"
+        android:name="com.cenkeraydin.kekodchallengeone.fragments.EgoFragment"
+        android:label="EgoFragment" />
+</navigation>
