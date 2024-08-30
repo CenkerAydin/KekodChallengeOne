@@ -1,7 +1,6 @@
 package com.cenkeraydin.kekodchallengeone.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.View
@@ -81,12 +80,10 @@ class EgoFragment : Fragment() {
     }
     override fun onResume() {
         super.onResume()
-        Log.d("EgoFragment", "onResume called")
         isScreenChanged = false
     }
     override fun onPause() {
         super.onPause()
-        Log.d("EgoFragment", "onPause called")
         isScreenChanged = true
     }
 
