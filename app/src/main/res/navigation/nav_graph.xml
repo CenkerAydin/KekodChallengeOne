@@ -6,35 +6,31 @@
     app:startDestination="@id/egoFragment">
 
     <fragment
-        android:id="@+id/happinessFragment"
+        android:id="@+id/swHappiness"
         android:name="com.cenkeraydin.kekodchallengeone.fragments.HappinessFragment"
         android:label="fragment_happiness"
         tools:layout="@layout/fragment_happiness" />
     <fragment
-        android:id="@+id/givingFragment"
+        android:id="@+id/swGiving"
         android:name="com.cenkeraydin.kekodchallengeone.fragments.GivingFragment"
         android:label="fragment_giving"
         tools:layout="@layout/fragment_giving" />
     <fragment
-        android:id="@+id/optimisimFragment"
+        android:id="@+id/swOptimisim"
         android:name="com.cenkeraydin.kekodchallengeone.fragments.OptimisimFragment"
         android:label="fragment_optimisim"
         tools:layout="@layout/fragment_optimisim" />
     <fragment
-        android:id="@+id/respectFragment"
+        android:id="@+id/swRespect"
         android:name="com.cenkeraydin.kekodchallengeone.fragments.RespectFragment"
         android:label="fragment_respect"
         tools:layout="@layout/fragment_respect" />
     <fragment
-        android:id="@+id/kindnessFragment"
+        android:id="@+id/swKindness"
         android:name="com.cenkeraydin.kekodchallengeone.fragments.KindnessFragment"
         android:label="fragment_kindness"
         tools:layout="@layout/fragment_kindness" />
-    <activity
-        android:id="@+id/mainActivity"
-        android:name="com.cenkeraydin.kekodchallengeone.MainActivity"
-        android:label="activity_main"
-        tools:layout="@layout/activity_main" />
+
     <fragment
         android:id="@+id/egoFragment"
         android:name="com.cenkeraydin.kekodchallengeone.fragments.EgoFragment"

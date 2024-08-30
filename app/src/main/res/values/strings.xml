@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">KekodChallengeOne</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="kekod_challenge_one">Kekod Challenge One</string>
+    <string name="happiness">Happiness</string>
+    <string name="optimism">Optimism</string>
+    <string name="kindness">Kindness</string>
+    <string name="giving">Giving</string>
+    <string name="respect">Respect</string>
+    <string name="ego">Ego</string>
+    <string name="smile">Smile, it\'s free therapy!</string>
+    <string name="happy_image">happy image</string>
+    <string name="optimism_text">Be positive</string>
+    <string name="be_kind">Be Kind</string>
+    <string name="give">Give</string>
 </resources>
