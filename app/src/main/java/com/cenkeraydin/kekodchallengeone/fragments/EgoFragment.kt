@@ -1,6 +1,7 @@
 package com.cenkeraydin.kekodchallengeone.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.View
@@ -23,6 +24,8 @@ class EgoFragment : Fragment() {
     private lateinit var switches: List<SwitchCompat>
     private lateinit var bottomNavigationView: BottomNavigationView
     private val toggleOrder = mutableListOf<Int>()
+    private var isScreenChanged = false
+
 
 
     override fun onCreateView(
@@ -60,7 +63,10 @@ class EgoFragment : Fragment() {
                 } else {
                     toggleOrder.remove(switch.id)
                 }
+                if (!isScreenChanged){
                 updateBottomNavigationMenu()
+            }
+
             }
         }
 
@@ -73,7 +79,16 @@ class EgoFragment : Fragment() {
             bottomNavigationView.visibility = if (isChecked) View.GONE else View.VISIBLE
         }
     }
-
+    override fun onResume() {
+        super.onResume()
+        Log.d("EgoFragment", "onResume called")
+        isScreenChanged = false
+    }
+    override fun onPause() {
+        super.onPause()
+        Log.d("EgoFragment", "onPause called")
+        isScreenChanged = true
+    }
 
     private fun updateBottomNavigationMenu() {
         bottomNavigationView.menu.clear()
