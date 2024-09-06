@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.SwitchCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import com.cenkeraydin.kekodchallengeone.EgoViewModel
 import com.cenkeraydin.kekodchallengeone.R
 import com.cenkeraydin.kekodchallengeone.databinding.ActivityMainBinding
 import com.cenkeraydin.kekodchallengeone.databinding.FragmentEgoBinding
@@ -23,6 +25,7 @@ class EgoFragment : Fragment() {
     private lateinit var switches: List<SwitchCompat>
     private lateinit var bottomNavigationView: BottomNavigationView
     private val toggleOrder = mutableListOf<Int>()
+    private val switchViewModel: EgoViewModel by viewModels()
     private var isScreenChanged = false
 
 
@@ -38,7 +41,6 @@ class EgoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         swEgo = binding.swEgo
-
         switches = listOf(
             binding.swHappiness,
             binding.swOptimisim,
@@ -50,32 +52,42 @@ class EgoFragment : Fragment() {
         val mainBinding = ActivityMainBinding.bind(requireActivity().findViewById(R.id.main))
         bottomNavigationView = mainBinding.bottomNav
 
-        bottomNavigationView.visibility = if (swEgo.isChecked) View.GONE else View.VISIBLE
+        switchViewModel.switchEgoState.observe(viewLifecycleOwner) { isChecked ->
+            swEgo.isChecked = isChecked
+            bottomNavigationView.visibility = if (isChecked) View.GONE else View.VISIBLE
+            switches.forEach { it.isEnabled = !isChecked }
+        }
 
-        switches.forEach { switch ->
-            switch.isEnabled = !swEgo.isChecked
-            switch.setOnCheckedChangeListener { _, isChecked ->
-                if (isChecked) {
-                    if (!toggleOrder.contains(switch.id)) {
-                        toggleOrder.add(switch.id)
-                    }
-                } else {
-                    toggleOrder.remove(switch.id)
-                }
-                if (!isScreenChanged){
-                updateBottomNavigationMenu()
+        switches.forEachIndexed { index, switch ->
+            val liveData = when (index) {
+                0 -> switchViewModel.switchHappinessState
+                1 -> switchViewModel.switchOptimismState
+                2 -> switchViewModel.switchKindnessState
+                3 -> switchViewModel.switchGivingState
+                4 -> switchViewModel.switchRespectState
+                else -> return@forEachIndexed
             }
 
+            liveData.observe(viewLifecycleOwner) { isChecked ->
+                switch.isChecked = isChecked
+            }
+
+            switch.setOnCheckedChangeListener { _, isChecked ->
+                when (index) {
+                    0 -> switchViewModel.setSwitchHappinessState(isChecked)
+                    1 -> switchViewModel.setSwitchOptimismState(isChecked)
+                    2 -> switchViewModel.setSwitchKindnessState(isChecked)
+                    3 -> switchViewModel.setSwitchGivingState(isChecked)
+                    4 -> switchViewModel.setSwitchRespectState(isChecked)
+                }
+                updateBottomNavigationMenu()
             }
         }
 
-
         swEgo.setOnCheckedChangeListener { _, isChecked ->
-            switches.forEach { switch ->
-                switch.isEnabled = !isChecked
-                if (isChecked) switch.isChecked = false
-            }
-            bottomNavigationView.visibility = if (isChecked) View.GONE else View.VISIBLE
+            switchViewModel.setSwitchEgoState(isChecked)  // ViewModel'daki Ego switch state'i güncelle
+            switches.forEach { it.isEnabled = !isChecked }
+            if (isChecked) switches.forEach { it.isChecked = false }
         }
     }
     override fun onResume() {
@@ -86,6 +98,8 @@ class EgoFragment : Fragment() {
         super.onPause()
         isScreenChanged = true
     }
+
+
 
     private fun updateBottomNavigationMenu() {
         bottomNavigationView.menu.clear()
