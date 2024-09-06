@@ -8,19 +8,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="30dp"
-        android:fontFamily="Arial"
-        android:text="@string/kekod_challenge_one"
-        android:gravity="center"
-        android:textSize="30sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <com.google.android.material.materialswitch.MaterialSwitch
         android:id="@+id/swHappiness"
         android:layout_width="wrap_content"
@@ -28,6 +15,8 @@
         android:text="@string/happiness"
         app:layout_constraintEnd_toStartOf="@+id/swOptimisim"
         app:layout_constraintHorizontal_bias="0.5"
+        app:trackDecorationTint="@drawable/switch_colors"
+        app:trackTint="@drawable/switch_colors"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/swOptimisim" />
 
@@ -39,6 +28,8 @@
         android:text="@string/optimism"
         app:layout_constraintEnd_toStartOf="@+id/swKindness"
         app:layout_constraintHorizontal_bias="0.5"
+        app:trackDecorationTint="@drawable/switch_colors"
+        app:trackTint="@drawable/switch_colors"
         app:layout_constraintStart_toEndOf="@+id/swHappiness"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -49,6 +40,8 @@
         android:text="@string/kindness"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
+        app:trackDecorationTint="@drawable/switch_colors"
+        app:trackTint="@drawable/switch_colors"
         app:layout_constraintStart_toEndOf="@+id/swOptimisim"
         app:layout_constraintTop_toTopOf="@+id/swOptimisim" />
 
@@ -61,6 +54,8 @@
         android:text="@string/giving"
         app:layout_constraintEnd_toStartOf="@+id/swRespect"
         app:layout_constraintHorizontal_bias="0.5"
+        app:trackDecorationTint="@drawable/switch_colors"
+        app:trackTint="@drawable/switch_colors"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -72,6 +67,8 @@
         android:text="@string/respect"
         app:layout_constraintEnd_toStartOf="@+id/swEgo"
         app:layout_constraintHorizontal_bias="0.5"
+        app:trackDecorationTint="@drawable/switch_colors"
+        app:trackTint="@drawable/switch_colors"
         app:layout_constraintStart_toEndOf="@+id/swGiving"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -83,6 +80,8 @@
         android:checked="true"
         android:text="@string/ego"
         app:layout_constraintEnd_toEndOf="parent"
+        app:trackDecorationTint="@drawable/switch_colors"
+        app:trackTint="@drawable/switch_colors"
         app:layout_constraintHorizontal_bias="0.782"
         app:layout_constraintStart_toEndOf="@+id/swGiving"
         app:layout_constraintTop_toTopOf="parent" />
