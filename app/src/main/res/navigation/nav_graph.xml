@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/egoFragment">
+    app:startDestination="@id/splashFragment">
 
     <fragment
         android:id="@+id/swHappiness"
@@ -35,4 +35,13 @@
         android:id="@+id/egoFragment"
         android:name="com.cenkeraydin.kekodchallengeone.fragments.EgoFragment"
         android:label="EgoFragment" />
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.cenkeraydin.kekodchallengeone.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_egoFragment"
+            app:destination="@id/egoFragment" />
+    </fragment>
 </navigation>
