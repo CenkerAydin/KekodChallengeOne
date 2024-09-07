@@ -3,19 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/gradient_kindness"
     tools:context=".fragments.KindnessFragment">
 
-    <TextView
+    <com.airbnb.lottie.LottieAnimationView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:gravity="center"
-        android:text="@string/be_kind"
-        android:layout_gravity="center"
-        android:textSize="25sp"
-        android:textColor="@color/black"
-        />
+        android:layout_height="match_parent"
+        app:lottie_rawRes="@raw/animation_kindness"
+        app:lottie_autoPlay="true"/>
 
 
 
