@@ -23,6 +23,27 @@ class EgoViewModel :ViewModel() {
     private val _switchEgoState = MutableLiveData<Boolean>()
     val switchEgoState: LiveData<Boolean> get() = _switchEgoState
 
+    private val _toggleOrder = MutableLiveData<MutableList<Int>>(mutableListOf())
+    val toggleOrder: LiveData<MutableList<Int>> get() = _toggleOrder
+
+    fun addToggleOrder(switchId: Int) {
+        _toggleOrder.value?.let { order ->
+            if (!order.contains(switchId)) {
+                order.add(switchId)
+                _toggleOrder.value = order
+            }
+        }
+    }
+
+    fun removeToggleOrder(switchId: Int) {
+        _toggleOrder.value?.let { order ->
+            if (order.contains(switchId)) {
+                order.remove(switchId)
+                _toggleOrder.value = order
+            }
+        }
+    }
+
     fun setSwitchHappinessState(state: Boolean) {
         _switchHappinessState.value = state
     }

@@ -24,7 +24,6 @@ class EgoFragment : Fragment() {
     private lateinit var swEgo: SwitchCompat
     private lateinit var switches: List<SwitchCompat>
     private lateinit var bottomNavigationView: BottomNavigationView
-    private val toggleOrder = mutableListOf<Int>()
     private val switchViewModel: EgoViewModel by viewModels()
     private var isScreenChanged = false
 
@@ -80,12 +79,19 @@ class EgoFragment : Fragment() {
                     3 -> switchViewModel.setSwitchGivingState(isChecked)
                     4 -> switchViewModel.setSwitchRespectState(isChecked)
                 }
-                updateBottomNavigationMenu()
+                if (isChecked) {
+                    switchViewModel.addToggleOrder(switch.id)
+                } else {
+                    switchViewModel.removeToggleOrder(switch.id)
+                }
             }
+        }
+        switchViewModel.toggleOrder.observe(viewLifecycleOwner) {
+            updateBottomNavigationMenu()
         }
 
         swEgo.setOnCheckedChangeListener { _, isChecked ->
-            switchViewModel.setSwitchEgoState(isChecked)  // ViewModel'daki Ego switch state'i güncelle
+            switchViewModel.setSwitchEgoState(isChecked)
             switches.forEach { it.isEnabled = !isChecked }
             if (isChecked) switches.forEach { it.isChecked = false }
         }
@@ -105,18 +111,23 @@ class EgoFragment : Fragment() {
         bottomNavigationView.menu.clear()
         bottomNavigationView.menu.add(Menu.NONE, R.id.egoFragment, Menu.NONE, "Home").setIcon(R.drawable.baseline_home_24)
 
-        val checkedSwitches = switches.filter { it.isChecked }
-        val sortedSwitchesToAdd = checkedSwitches.sortedBy { toggleOrder.indexOf(it.id) }
+        val sortedSwitchesToAdd = switchViewModel.toggleOrder.value?.mapNotNull { switchId ->
+            when (switchId) {
+                R.id.swHappiness -> binding.swHappiness
+                R.id.swOptimisim -> binding.swOptimisim
+                R.id.swKindness -> binding.swKindness
+                R.id.swGiving -> binding.swGiving
+                R.id.swRespect -> binding.swRespect
+                else -> null
+            }
+        } ?: emptyList()
 
         sortedSwitchesToAdd.forEach { switch ->
             if (bottomNavigationView.menu.size() >= 5) {
-                Snackbar.make(
-                    binding.root,
-                    "Maximum number of items reached",
-                    Snackbar.LENGTH_SHORT
-                ).show()
-                return
+                Snackbar.make(binding.root, "Maximum number of items reached", Snackbar.LENGTH_SHORT).show()
+                return@forEach
             }
+
             val title = when (switch.id) {
                 R.id.swHappiness -> "Happiness"
                 R.id.swOptimisim -> "Optimism"
@@ -125,6 +136,7 @@ class EgoFragment : Fragment() {
                 R.id.swRespect -> "Respect"
                 else -> "Switch"
             }
+
             val icon = when (switch.id) {
                 R.id.swHappiness -> R.drawable.happy
                 R.id.swOptimisim -> R.drawable.optimism
@@ -133,9 +145,11 @@ class EgoFragment : Fragment() {
                 R.id.swRespect -> R.drawable.respect
                 else -> R.drawable.baseline_home_24
             }
+
             bottomNavigationView.menu.add(Menu.NONE, switch.id, Menu.NONE, title).setIcon(icon)
         }
     }
+
 
 
 }
