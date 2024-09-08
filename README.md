@@ -12,8 +12,10 @@ This repository contains the project for the Kekod Challenge One. The project is
 Screenshots</h2>
 
 <p align="left">
-<img align="left" src="screenshots/default.png" width="250" height="530"/>
-<img align="left" src="screenshots/closeEgo.png" width="250" height="530"/>
-<img align="left" src="screenshots/openSwitch.png" width="250" height="530"/>
-<img align="left" src="screenshots/sampleFragment.png" width="250" height="530"/>
+<img align="left" src="screenshots/homeScreen.png" width="250" height="530"/>
+<img align="left" src="screenshots/close_ego.png" width="250" height="530"/>
+<img align="left" src="screenshots/open_switch.png" width="250" height="530"/>
+<img align="left" src="screenshots/kindness_screen.png" width="250" height="530"/>
+<img align="left" src="screenshots/respect_screen.png" width="250" height="530"/>
+
 </p>
