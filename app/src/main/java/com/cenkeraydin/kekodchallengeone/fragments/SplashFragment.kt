@@ -1,4 +1,4 @@
-package com.cenkeraydin.kekodchallengeone
+package com.cenkeraydin.kekodchallengeone.fragments
 
 import android.os.Bundle
 import android.os.Handler
@@ -8,8 +8,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.cenkeraydin.kekodchallengeone.R
 import com.cenkeraydin.kekodchallengeone.databinding.ActivityMainBinding
-import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class SplashFragment : Fragment() {
 

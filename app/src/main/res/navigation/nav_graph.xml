@@ -37,7 +37,7 @@
         android:label="EgoFragment" />
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.cenkeraydin.kekodchallengeone.SplashFragment"
+        android:name="com.cenkeraydin.kekodchallengeone.fragments.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
         <action

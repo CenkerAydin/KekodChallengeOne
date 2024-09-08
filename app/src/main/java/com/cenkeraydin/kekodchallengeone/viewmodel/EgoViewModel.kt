@@ -1,4 +1,4 @@
-package com.cenkeraydin.kekodchallengeone
+package com.cenkeraydin.kekodchallengeone.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

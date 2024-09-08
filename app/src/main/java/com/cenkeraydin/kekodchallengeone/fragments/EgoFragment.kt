@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.SwitchCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.cenkeraydin.kekodchallengeone.EgoViewModel
+import com.cenkeraydin.kekodchallengeone.viewmodel.EgoViewModel
 import com.cenkeraydin.kekodchallengeone.R
 import com.cenkeraydin.kekodchallengeone.databinding.ActivityMainBinding
 import com.cenkeraydin.kekodchallengeone.databinding.FragmentEgoBinding
